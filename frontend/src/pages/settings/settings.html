@@ -130,7 +130,18 @@
                     <q-list>
                         <q-item>
                             <q-item-section class="col-md-2">
-                                <label class="vertical-center">{{$t('complex')}} : </label>
+                                <label class="vertical-center">{{$t('veryhigh')}} : </label>
+                            </q-item-section>
+                            <q-item-section class="col-md-1">
+                                <input type="color" id="colorpicker" v-model="settings.report.public.remediationColorsComplexity.veryhighColor"/>
+                            </q-item-section>
+                            <q-item-section class="col-md-2">
+                                <label for="colorpicker" class="vertical-center">{{$t('currentColor')}}: {{settings.report.public.remediationColorsComplexity.veryhighColor}}</label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item>
+                            <q-item-section class="col-md-2">
+                                <label class="vertical-center">{{$t('high')}} : </label>
                             </q-item-section>
                             <q-item-section class="col-md-1">
                                 <input type="color" id="colorpicker" v-model="settings.report.public.remediationColorsComplexity.highColor"/>

@@ -21,7 +21,7 @@ var Finding = {
     description:            String,
     observation:            String,
     remediation:            String,
-    remediationComplexity:  {type: Number, enum: [1,2,3]},
+    remediationComplexity:  {type: Number, enum: [1,2,3,4]},
     priority:               {type: Number, enum: [1,2,3,4]},
     references:             [String],
     cvssv3:                 String,
