@@ -540,13 +540,16 @@ function parser(tag) {
         }
     }
     // Handle the tag "$scopePunctuation" to add ; for all items except last which gets .
+    // Returns raw XML for inline insertion
     if (tag === "$scopePunctuation") {
         return {
             get(scope, context) {
                 const totalLength = context.scopePathLength[context.scopePathLength.length - 1];
                 const index = context.scopePathItem[context.scopePathItem.length - 1];
                 const isLast = index === totalLength - 1;
-                return isLast ? '.' : ' ;';
+                const punct = isLast ? '.' : ' ;';
+                // Return as raw XML text run
+                return '<w:r><w:t xml:space="preserve">' + punct + '</w:t></w:r>';
             }
         }
     }
