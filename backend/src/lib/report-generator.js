@@ -539,6 +539,17 @@ function parser(tag) {
             }
         }
     }
+    // Handle the tag "$scopePunctuation" to add ; for all items except last which gets .
+    if (tag === "$scopePunctuation") {
+        return {
+            get(scope, context) {
+                const totalLength = context.scopePathLength[context.scopePathLength.length - 1];
+                const index = context.scopePathItem[context.scopePathItem.length - 1];
+                const isLast = index === totalLength - 1;
+                return isLast ? '.' : ' ;';
+            }
+        }
+    }
     // We use the angularParser as the default fallback
     // If you don't wish to use the angularParser,
     // you can use the default parser as documented here:
